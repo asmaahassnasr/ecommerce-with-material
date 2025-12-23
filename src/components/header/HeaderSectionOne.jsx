@@ -6,7 +6,14 @@ import {
   LightModeOutlined,
   Twitter,
 } from "@mui/icons-material";
-import { Box, IconButton, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Container,
+  IconButton,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { useContext, useState } from "react";
 import { ColorModeContext } from "../../theme";
 import List from "@mui/material/List";
@@ -38,116 +45,120 @@ export default function HeaderSectionOne() {
   };
 
   return (
-    <Stack
-      direction={"row"}
-      alignItems={"center"}
-      px={3}
-      gap={2}
-      sx={{ bgcolor: "#2b3445" , borderBottomRightRadius:"5px" , borderBottomLeftRadius:"5px" }}
+    <Box
+      sx={{
+        bgcolor: "#2b3445",
+        borderBottomRightRadius: "5px",
+        borderBottomLeftRadius: "5px",
+      }}
     >
-      <Typography
-        sx={{
-          color: "#fff",
-          fontSize: "10px",
-          fontWeight: "bold",
-          borderRadius: "12px",
-          p: "3px 10px",
-          bgcolor: "#D23F57",
-        }}
-        variant="body2"
-      >
-        Hot
-      </Typography>
-
-      <Typography
-        variant="body2"
-        sx={{ color: "#fff", fontWeight: 300, fontSize: "12px" }}
-      >
-        Free Express Shipping
-      </Typography>
-
-      <Box flexGrow={1} />
-
-      <div>
-        {theme.palette.mode === "light" ? (
-          <IconButton
-            onClick={() => {
-              localStorage.setItem(
-                "mode",
-                theme.palette.mode === "dark" ? "light" : "dark"
-              );
-              colorMode.toggleColorMode();
-            }}
-            color="inherit"
-          >
-            <LightModeOutlined fontSize="small" sx={{ color: "#fff" }} />
-          </IconButton>
-        ) : (
-          <IconButton
-            onClick={() => {
-              localStorage.setItem(
-                "mode",
-                theme.palette.mode === "dark" ? "light" : "dark"
-              );
-              colorMode.toggleColorMode();
-            }}
-            color="inherit"
-          >
-            <DarkModeOutlined fontSize="small" />
-          </IconButton>
-        )}
-      </div>
-
-      <List component="nav" aria-label="languages">
-        <ListItemButton
-          id="lock-button"
-          aria-haspopup="listbox"
-          aria-controls="lock-menu"
-          aria-label="language"
-          aria-expanded={open ? "true" : undefined}
-          onClick={handleClickListItem}
-          sx={{
-            color: "#fff",
-            padding: "0 !important",
-          }}
-        >
-          <ListItemText
-            primary={options[selectedIndex]}
-            secondary={<KeyboardArrowDown sx={{ color: "#fff" }} />}
+      <Container>
+        <Stack direction={"row"} alignItems={"center"} gap={2}>
+          <Typography
             sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
+              color: "#fff",
+              fontSize: "10px",
+              fontWeight: "bold",
+              borderRadius: "12px",
+              p: "3px 10px",
+              bgcolor: "#D23F57",
             }}
-          />
-        </ListItemButton>
-      </List>
-      <Menu
-        id="lock-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        slotProps={{
-          list: {
-            "aria-labelledby": "lock-button",
-            role: "listbox",
-          },
-        }}
-      >
-        {options.map((option, index) => (
-          <MenuItem
-            key={option}
-            selected={index === selectedIndex}
-            onClick={(event) => handleMenuItemClick(event, index)}
+            variant="body2"
           >
-            {option}
-          </MenuItem>
-        ))}
-      </Menu>
+            Hot
+          </Typography>
 
-      <Twitter sx={{ color: "#fff", fontSize: "20px" }} />
-      <Facebook sx={{ color: "#fff", fontSize: "20px" }} />
-      <Instagram sx={{ color: "#fff", fontSize: "20px" }} />
-    </Stack>
+          <Typography
+            variant="body2"
+            sx={{ color: "#fff", fontWeight: 300, fontSize: "12px" }}
+          >
+            Free Express Shipping
+          </Typography>
+
+          <Box flexGrow={1} />
+
+          <div>
+            {theme.palette.mode === "light" ? (
+              <IconButton
+                onClick={() => {
+                  localStorage.setItem(
+                    "mode",
+                    theme.palette.mode === "dark" ? "light" : "dark"
+                  );
+                  colorMode.toggleColorMode();
+                }}
+                color="inherit"
+              >
+                <LightModeOutlined fontSize="small" sx={{ color: "#fff" }} />
+              </IconButton>
+            ) : (
+              <IconButton
+                onClick={() => {
+                  localStorage.setItem(
+                    "mode",
+                    theme.palette.mode === "dark" ? "light" : "dark"
+                  );
+                  colorMode.toggleColorMode();
+                }}
+                color="inherit"
+              >
+                <DarkModeOutlined fontSize="small" />
+              </IconButton>
+            )}
+          </div>
+
+          <List component="nav" aria-label="languages">
+            <ListItemButton
+              id="lock-button"
+              aria-haspopup="listbox"
+              aria-controls="lock-menu"
+              aria-label="language"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClickListItem}
+              sx={{
+                color: "#fff",
+                padding: "0 !important",
+              }}
+            >
+              <ListItemText
+                primary={options[selectedIndex]}
+                secondary={<KeyboardArrowDown sx={{ color: "#fff" }} />}
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              />
+            </ListItemButton>
+          </List>
+          <Menu
+            id="lock-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            slotProps={{
+              list: {
+                "aria-labelledby": "lock-button",
+                role: "listbox",
+              },
+            }}
+          >
+            {options.map((option, index) => (
+              <MenuItem
+                key={option}
+                selected={index === selectedIndex}
+                onClick={(event) => handleMenuItemClick(event, index)}
+              >
+                {option}
+              </MenuItem>
+            ))}
+          </Menu>
+
+          <Twitter sx={{ color: "#fff", fontSize: "20px" }} />
+          <Facebook sx={{ color: "#fff", fontSize: "20px" }} />
+          <Instagram sx={{ color: "#fff", fontSize: "20px" }} />
+        </Stack>
+      </Container>
+    </Box>
   );
 }
