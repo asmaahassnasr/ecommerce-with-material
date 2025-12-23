@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "checkJs": true,    
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "resolveJsonModule": true      
+  },
+  "include": [
+    "src"                 // Specify the folder(s) containing your JS files
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
