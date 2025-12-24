@@ -15,6 +15,9 @@ export const getDesignTokens = (mode) => ({
             main: "#64748B",
           },
 
+          myColor: {
+            main: "#f6f9fc",
+          },
           favColor: {
             main: grey[300],
           },
@@ -25,6 +28,9 @@ export const getDesignTokens = (mode) => ({
             main: "#64748B",
           },
 
+          myColor: {
+            main: "#252b32",
+          },
           favColor: {
             main: grey[800],
           },
@@ -56,4 +62,3 @@ export const useMode = () => {
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
   return [theme, colorMode];
 };
-
