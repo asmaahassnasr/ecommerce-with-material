@@ -28,9 +28,9 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   border: "1px solid #777",
   // backgroundColor: alpha(theme.palette.common.white, 0.15),
-  // "&:hover": {
-  //   backgroundColor: alpha(theme.palette.common.white, 0.25),
-  // },
+  "&:hover": {
+    border: "1px solid #333",
+  },
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -96,7 +96,7 @@ export default function HeaderSectionTwo() {
   };
 
   return (
-    <Container sx={{ py: 3, display: "flex", justifyContent: "space-between" }}>
+    <Container sx={{ my:2, display: "flex", justifyContent: "space-between" }}>
       <Stack alignItems={"center"}>
         <ShoppingCart />
         <Typography variant="body2">E-Commerce</Typography>
